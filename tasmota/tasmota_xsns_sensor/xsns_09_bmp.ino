@@ -296,7 +296,7 @@ bool Bmx280Calibrate(uint8_t bmp_idx) {
     // Set before CONTROL_meas (DS 5.4.3)
     I2cWrite8(address, BME280_REGISTER_CONTROLHUMID, 0x01, bus); // 1x oversampling
     I2cWrite8(address, BME280_REGISTER_CONFIG, 0xA0, bus);       // 1sec standby between measurements (to limit self heating), IIR filter off
-    I2cWrite8(address, BME280_REGISTER_CONTROL, 0x27, bus);      // 1x oversampling, normal mode
+    I2cWrite8(address, BME280_REGISTER_CONTROL, 0x26, bus);      // 1x oversampling, normal mode
   } else {
     I2cWrite8(address, BME280_REGISTER_CONTROL, 0xB7, bus);      // 16x oversampling, normal mode (Adafruit)
   }
