@@ -306,9 +306,9 @@ bool Bmx280Calibrate(uint8_t bmp_idx) {
 void Bme280Read(uint8_t bmp_idx) {
   if (!Bme280CalibrationData) { return; }
 
-  I2cWrite8(address, BME280_REGISTER_CONTROL, 0x26, bus);      // 1x oversampling, forced mode
   uint8_t address = bmp_sensors[bmp_idx].bmp_address;
   uint8_t bus = bmp_sensors[bmp_idx].bmp_bus;
+  I2cWrite8(address, BME280_REGISTER_CONTROL, 0x26, bus);      // 1x oversampling, forced mode
   int32_t adc_T = I2cRead24(address, BME280_REGISTER_TEMPDATA, bus);
   adc_T >>= 4;
 
